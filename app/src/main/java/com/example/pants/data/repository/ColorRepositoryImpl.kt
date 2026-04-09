@@ -45,8 +45,10 @@ class ColorRepositoryImpl(
 
     private fun ColorModel.isValid(): Boolean {
         val nameLower = name.lowercase(Locale.getDefault())
-
-        return !COMMON_USE_NAMES.any { nameLower.contains(it) }
+        val isNameValid = !COMMON_USE_NAMES.any { nameLower.contains(it) }
+        val isSaturationValid = saturation > 0.3f
+        val isValueValid = value > 0.4f
+        return isNameValid && isSaturationValid && isValueValid
     }
 
     private companion object {

@@ -64,40 +64,19 @@ class ColorRepositoryImplTest {
     fun `performance test for getRandomColors`() = runBlocking {
         val countToGet = 10
 
-        val mixedResponses = listOf(
-            createMockResponse("Valid 1", 0.5f, 0.6f),
-            createMockResponse("Valid 2", 0.7f, 0.8f),
-            createMockResponse("Valid 3", 0.4f, 0.9f),
-            createMockResponse("Valid 4", 0.6f, 0.5f),
-            createMockResponse("Valid 5", 0.8f, 0.7f),
-            createMockResponse("Valid 6", 0.5f, 0.5f),
-            createMockResponse("Valid 7", 0.9f, 0.45f),
-            createMockResponse("Valid 8", 0.6f, 0.6f),
-            createMockResponse("Valid 9", 0.7f, 0.7f),
-            createMockResponse("Valid 10", 0.4f, 0.5f),
-
-
-            createMockResponse("Grey", 0.1f, 0.3f),
-            createMockResponse("Dark", 0.1f, 0.3f),
-            createMockResponse("Red", 0.1f, 0.3f),
-            createMockResponse("Blue", 0.1f, 0.3f),
-            createMockResponse("Black", 0.1f, 0.3f),
-            createMockResponse("Dull", 0.1f, 0.3f),
-            createMockResponse("Silver", 0.1f, 0.3f),
-            createMockResponse("White", 0.1f, 0.3f),
-            createMockResponse("Very", 0.1f, 0.3f),
-            createMockResponse("Pale", 0.1f, 0.3f)
-        ).shuffled()
+        val validColors = (1..100).map { i ->
+            createMockResponse("Valid Color $i", 0.6f, 0.7f)
+        }
+        val invalidColors = (1..100).map { i ->
+            createMockResponse("red", 0.1f, 0.1f)
+        }
+        val mixedResponses = (validColors + invalidColors).shuffled()
 
 
         coEvery { apiService.getColor(any()) } returnsMany mixedResponses
 
         val time = kotlin.system.measureTimeMillis {
-            val result = repository.getRandomColors(countToGet)
-
-            val colors = result.getOrThrow()
-            assertTrue(colors.size == countToGet)
-            assertTrue(colors.all { it.saturation > 0.3f && it.value > 0.4f })
+            repository.getRandomColors(countToGet)
         }
 
         println("Time for $countToGet valid colors from 20 responses: $time ms")

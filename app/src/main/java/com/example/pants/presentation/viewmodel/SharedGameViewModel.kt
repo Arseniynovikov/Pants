@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.pants.domain.model.ColorModel
 import com.example.pants.domain.usecase.CheckBoardOrderUseCase
 import com.example.pants.domain.usecase.GetColorBoardUseCase
+import com.example.pants.utils.extension.hue
 import kotlinx.collections.immutable.toPersistentList
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -44,7 +45,8 @@ class SharedGameViewModel(
         }
     }
 
-    fun saveColor(newHue: Float) {
+    fun saveColor() {
+        val newHue = _selectedColor.value.hue
         viewModelScope.launch {
             if (_colorBoard.value.isEmpty()) return@launch
             val updatedColors = _colorBoard.value.map {

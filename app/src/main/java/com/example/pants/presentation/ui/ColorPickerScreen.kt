@@ -1,6 +1,7 @@
 package com.example.pants.presentation.ui
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.rememberTransformableState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -9,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -33,13 +35,18 @@ fun ColorPickerScreen(viewModel: SharedGameViewModel, onSave: () -> Unit) {
     val selectedColor by viewModel.selectedColor.collectAsStateWithLifecycle()
     val currentColorName by viewModel.currentColorName.collectAsStateWithLifecycle()
     val colorBoard by viewModel.colorBoard.collectAsStateWithLifecycle()
+
+    val onSaveClick = remember(viewModel, onSave){
+        {
+            viewModel.saveColor()
+            onSave()
+        }
+    }
+
     ColorPicker(
         selectedColor = selectedColor,
         colorName = currentColorName,
-        onSaveColor = {
-            viewModel.saveColor(selectedColor.hue)
-            onSave()
-        },
+        onSaveColor = onSaveClick,
         onUpdateColorSettings = viewModel::updateColorSettings,
         colors = colorBoard,
     )

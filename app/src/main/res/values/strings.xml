@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Pants</string>
+    <string name="sort_the_pants"><![CDATA[
+    <font color="#mainColor">Sort the </font><font color="#secondColor">Pants</font>
+]]></string>
+    <string name="next">Next</string>
+    <string name="move_up">Move Up</string>
+    <string name="try_again">Try Again</string>
+    <string name="success">Success!</string>
+    <string name="save">Save</string>
+    <string name="pants_solution"><![CDATA[
+    <font color="#secondColor">Pants </font><font color="#mainColor">Solution</font>
+]]></string>
+    <string name="error">Error</string>
+    <string name="hue_data">%.2f°</string>
+    <string name="rgb_data">%.2f %.2f %.2f</string>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ErrorAlertDialog" parent="ThemeOverlay.AppCompat.Dialog.Alert">
+        <item name="android:background">@color/main_color</item>
+        <item name="colorAccent">@color/secondary</item>
+    </style>
+</resources>

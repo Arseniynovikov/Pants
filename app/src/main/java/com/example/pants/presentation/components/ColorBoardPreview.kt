@@ -1,4 +1,4 @@
-package com.example.pants.utils.components
+package com.example.pants.presentation.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.ColorUtils
-import com.example.pants.domain.ColorModel
+import com.example.pants.domain.model.ColorModel
 
 @Composable
 internal fun ColorBoardPreview(

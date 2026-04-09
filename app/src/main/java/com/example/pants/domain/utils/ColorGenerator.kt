@@ -1,4 +1,4 @@
-package com.example.pants.utils
+package com.example.pants.domain.utils
 
 import kotlin.random.Random
 

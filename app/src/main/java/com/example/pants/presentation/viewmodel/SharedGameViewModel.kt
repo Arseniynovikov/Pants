@@ -55,15 +55,7 @@ class SharedGameViewModel(
     }
 
     fun updateColorSettings(hue: Float) {
-        _selectedColor.value = Color.Companion.hsv(hue, 1f, 1f)
-        Log.e("debug", "bonjour")
-        _colorBoard.value = _colorBoard.value.map { color ->
-            if(Color.Companion.hsv(color.guessHue ?: 0f, color.saturation, color.value) != _selectedColor.value) {
-                color.updateHue(color.guessHue)
-            } else {
-                color.updateHue(hue)
-            }
-        }
+        _selectedColor.value = Color.hsv(hue, 1f, 1f)
     }
 
     fun checkColorOrder(board: List<ColorModel>): List<ColorModel>? {

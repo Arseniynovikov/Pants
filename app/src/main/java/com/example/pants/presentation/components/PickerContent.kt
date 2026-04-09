@@ -1,4 +1,4 @@
-package com.example.pants.utils.components
+package com.example.pants.presentation.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -11,9 +11,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.pants.domain.ColorModel
+import com.example.pants.domain.model.ColorModel
 import com.example.pants.utils.ui.animatedGradientTransition
-import com.example.pants.utils.hue
+import com.example.pants.utils.extension.hue
 
 @Composable
 internal fun PickerContent(

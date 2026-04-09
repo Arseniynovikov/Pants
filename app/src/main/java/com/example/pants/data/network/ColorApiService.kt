@@ -1,6 +1,6 @@
-package com.example.pants.service
+package com.example.pants.data.network
 
-import com.example.pants.domain.ColorResponse
+import com.example.pants.data.network.model.ColorResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

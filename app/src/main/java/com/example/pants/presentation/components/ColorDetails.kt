@@ -1,4 +1,4 @@
-package com.example.pants.utils.components
+package com.example.pants.presentation.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -16,7 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pants.R
-import com.example.pants.utils.hue
+import com.example.pants.utils.extension.hue
 
 @Composable
 internal fun ColorDetails(modifier: Modifier, color: Color) {

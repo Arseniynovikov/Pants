@@ -1,12 +1,12 @@
-package com.example.pants.main
+package com.example.pants.presentation.viewmodel
 
 import android.util.Log
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.pants.domain.ColorModel
-import com.example.pants.utils.CheckBoardOrderUseCase
-import com.example.pants.utils.GetColorBoardUseCase
+import com.example.pants.domain.model.ColorModel
+import com.example.pants.domain.usecase.CheckBoardOrderUseCase
+import com.example.pants.domain.usecase.GetColorBoardUseCase
 import kotlinx.collections.immutable.toPersistentList
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -27,7 +27,7 @@ class SharedGameViewModel(
     private val _currentColorName = MutableStateFlow<String?>(null)
     val currentColorName: StateFlow<String?> = _currentColorName.asStateFlow()
 
-    private val _selectedColor = MutableStateFlow(Color.Black)
+    private val _selectedColor = MutableStateFlow(Color.Companion.Black)
     val selectedColor: StateFlow<Color> = _selectedColor.asStateFlow()
 
     private val _errorMessage = MutableSharedFlow<String>()
@@ -55,10 +55,10 @@ class SharedGameViewModel(
     }
 
     fun updateColorSettings(hue: Float) {
-        _selectedColor.value = Color.hsv(hue, 1f, 1f)
+        _selectedColor.value = Color.Companion.hsv(hue, 1f, 1f)
         Log.e("debug", "bonjour")
         _colorBoard.value = _colorBoard.value.map { color ->
-            if(Color.hsv(color.guessHue ?: 0f, color.saturation, color.value) != _selectedColor.value) {
+            if(Color.Companion.hsv(color.guessHue ?: 0f, color.saturation, color.value) != _selectedColor.value) {
                 color.updateHue(color.guessHue)
             } else {
                 color.updateHue(hue)

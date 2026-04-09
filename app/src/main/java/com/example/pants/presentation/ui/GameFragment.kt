@@ -11,7 +11,7 @@ import com.example.pants.utils.extension.collectFlow
 import com.example.pants.utils.extension.setColoredText
 import com.example.pants.utils.extension.showErrorDialog
 import com.example.pants.utils.extension.showToast
-import com.example.pants.main.SharedGameViewModel
+import com.example.pants.presentation.viewmodel.SharedGameViewModel
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
 
 class GameFragment : Fragment() {

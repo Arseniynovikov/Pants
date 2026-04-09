@@ -1,4 +1,4 @@
-package com.example.pants.utils.components
+package com.example.pants.presentation.components
 
 import android.graphics.Bitmap
 import android.graphics.Color.HSVToColor
@@ -30,7 +30,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.toRect
 import com.example.pants.R
-import com.example.pants.utils.hue
+import com.example.pants.utils.extension.hue
 
 private const val PICKER_WIDTH = 300
 

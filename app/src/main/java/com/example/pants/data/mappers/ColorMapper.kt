@@ -1,7 +1,7 @@
-package com.example.pants.utils
+package com.example.pants.data.mappers
 
-import com.example.pants.domain.ColorResponse
-import com.example.pants.domain.ColorModel
+import com.example.pants.data.network.model.ColorResponse
+import com.example.pants.domain.model.ColorModel
 
 fun ColorResponse.toColorModel(): ColorModel {
     return ColorModel(

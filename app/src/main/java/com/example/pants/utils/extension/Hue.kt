@@ -1,4 +1,4 @@
-package com.example.pants.utils
+package com.example.pants.utils.extension
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,8 +1,10 @@
-package com.example.pants.service
+package com.example.pants.data.repository
 
-import com.example.pants.domain.ColorModel
-import com.example.pants.utils.generateRandomColor
-import com.example.pants.utils.toColorModel
+import com.example.pants.data.network.ColorApiService
+import com.example.pants.domain.model.ColorModel
+import com.example.pants.domain.repository.ColorRepository
+import com.example.pants.domain.utils.generateRandomColor
+import com.example.pants.data.mappers.toColorModel
 import java.util.Locale
 
 class ColorRepositoryImpl(

@@ -1,4 +1,4 @@
-package com.example.pants.domain
+package com.example.pants.domain.model
 
 class ColorModel(
     val name: String,
